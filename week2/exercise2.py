@@ -11,11 +11,13 @@ import string
 
 
 def getLetter(index):
+    """S."""
     alphabet = string.ascii_lowercase + " "
-return alphabet[index]
+    return alphabet[index]
 
 
 def week2exersise2():
+    """S."""
     indices = [12, 2, 26, 7, 0, 12, 12, 4, 17]
     wordArray = map(getLetter, indices)
     wordArray[0] = wordArray[0].upper()
@@ -27,4 +29,4 @@ def week2exersise2():
 
 
 if __name__ == "__main__":
-    prin(week2exersise2())
+    print(week2exersise2())

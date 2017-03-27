@@ -9,7 +9,7 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-return (a_number % 2 != 0)
+    return (a_number % 2 != 0)
 
 
 def fix_it(moves=True, should_move=True):
@@ -64,8 +64,6 @@ def star_map():
         return result
 
 
-
-
 def loops_1c(number_of_items=5, symbol="#"):
     """Respond to variables.
 
@@ -101,8 +99,9 @@ def loops_2():
     """
     star_box = []
     for j in range(10):
-        star_box.append(loops_lc(number_of_items=10, symbol="*"))
+        star_box.append(loops_1c(number_of_items=10, symbol="*"))
     return star_box
+
 
 def loops_3():
     """Make a rising block of numbers.
