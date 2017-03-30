@@ -8,17 +8,17 @@ import math
 
 def binary_search(low, high, actual_number):
     """Do a binary search.
-
     This is going to be your first 'algorithm' in the usual sense of the word!
     you'll give it a range to guess inside, and then use binary search to home
     in on the actual_number.
     Each guess, print what the guess is Then when you find the number return
     the number of guesses it took to get there and the actual number
     as a dictionary. make sure that it has exactly these keys:
+
     {"guess": guess, "tries": tries}
     This will be quite hard, especially hard if you don't have a good diagram!
-
     Debugging helpers:
+
       * GUARD is there to make it only run a few times so that you can see
         what's happening.
       * time.sleep(0.5) makes it pause for half a second.
@@ -27,7 +27,18 @@ def binary_search(low, high, actual_number):
       (You should remove them from the file, not comment them out, the
       tests aren't that smart yet.)
     """
-    pass
+    tries = 1
+    guess = int(round((high + low) / 2, 0))
+    while guess != actual_number:
+        if guess > actual_number:
+            high = guess
+            guess = int(math.ceil((low + guess) / 2))
+        else:
+            low = guess
+            guess = int(math.floor((high + guess) / 2))
+        tries = (tries + 1)
+        print ("guess {},  actnum {}".format(guess, actual_number))
+    return {"guess": guess, "tries": tries}
 
 
 if __name__ == "__main__":
