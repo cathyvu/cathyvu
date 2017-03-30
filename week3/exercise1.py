@@ -51,18 +51,19 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     has odd steps be one size and even steps be another.
     """
 
-    step_of_step = []
-    count = 1
+    genes_beats = []
 
-    while start <= stop:
-        step_of_step.append(start)
-        if count % 2 != 0:
-            start += even_step
+    latest = start
+    beat = 0
+
+    while latest < stop:
+        genes_beats.append(latest)
+        if beat % 2 == 0:
+            latest += even_step
         else:
-            start += odd_step
-        count += 1
-
-        return step_of_step
+            latest += odd_step
+        beat += 1
+        return genes_beats
 
 
 def stubborn_asker(low, high):
@@ -92,17 +93,14 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    message = "Insert number for good times:"
 
     while True:
         try:
-            input_variable = int(raw_input(message))
-            print("{} is a good number".format(input_variable))
-            return(input_variable)
-        except Exception as n:
-            print("{} is a bad number and will be thrown away".format(n))
-
-    return(input_variable)
+            input_number = int(raw_input(message))
+            print("{} is a good number".format(input_number))
+            return input_number
+        except Exception as e:
+            print("{} is a bad number and will be thrown away".format(e))
 
 
 def super_asker(low, high):
@@ -118,13 +116,12 @@ def super_asker(low, high):
             try:
                 input_number = int(raw_input(message))
                 if low < input_number < high:
-                    print("{} is a good number".format(input_variable))
-                    return(input_variable)
+                    print("{} is a good number".format(input_number))
+                    return(input_number)
                 else:
                     print("{} is valid".format(input_number))
-                    return input_number
-                else:
-                    print("{} is a bad number and will be thrown away".format(n))
+            except Exception as n:
+                print("{} is a bad number and will be thrown away".format(n))
 
     return(input_number)
 
@@ -145,6 +142,6 @@ if __name__ == "__main__":
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
-    not_number_rejector()
+    not_number_rejector("Give me a number:")
     print("\nsuper_asker")
     super_asker(33, 42)
