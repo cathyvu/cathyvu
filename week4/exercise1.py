@@ -25,10 +25,21 @@ def success_is_relative():
     TIP: check that there ins't unwanted whitespace or line endings in the
          response. Look into .strip() and see what it does.
     """
+    mode = "r"
+    file_path = "week1/pySuccessMessage.json"
+    success_file = open(file_path, mode)
+    response = success_file.read()
+    print (response)
+    success_file.close()
+
+    return response
+
     # this depends on excecution context. Take a look at your CWD and remember
     # that it changes.
     # print(path, CWD)
-    pass
+
+
+success_is_relative()
 
 
 def get_some_details():
@@ -50,16 +61,20 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    lastName = data["results"][0]["name"]["last"]
+    password = ["results"][0]["login"]["password"]
+    postcode = ["results"][0]["location"]["postcode"]
+    ID = ["results"][0]["id"]["value"]
+    return {"lastName":       lastName,
+            "password":       password,
+            "postcodePlusID": postcode + ID
             }
 
 
 def wordy_pyramid():
     """Make a pyramid out of real words.
 
-    There is a random word generator here: http://www.setgetgo.com/randomword/
+    There is a random word generator here: http://www.setgetgwo.com/randomword/
     The only argument that the generator takes is the length of the word.
     Use this and the requests library to make a word pyramid. The shortest
     words they have are 3 letters long and the longest are 20. The pyramid
@@ -89,6 +104,9 @@ def wordy_pyramid():
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
     pass
+    url = "http://www.setgetgo.com./randomword/get.php?len=5"
+    r = requests.get(url)
+    print (r.text)
 
 
 def wunderground():

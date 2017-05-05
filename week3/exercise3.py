@@ -2,6 +2,7 @@
 
 Steps on the way to making your own guessing game.
 """
+
 from __future__ import division
 from __future__ import print_function
 from exercise1 import not_number_rejector
