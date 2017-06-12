@@ -105,8 +105,9 @@ def best_letter_for_pets():
     import string
     the_alphabet = string.lowercase
 
+    pets()
     for pet in pets:
-            for 
+            for
     pass
 
 
